@@ -274,6 +274,12 @@ export const COMMUNITY_CAROUSEL_SLIDES: CommunitySlideItem[] = [
 
 export const RECENT_MESSAGES: SermonItem[] = [
   {
+    date: '08 Nov 2026',
+    title: 'Conquistas inéditas: Jacó, descubra o poder da renúncia',
+    preacher: 'Pra. Cremilde Andrade',
+    series: 'Culto de Família',
+  },
+  {
     date: 'Ano 2026',
     title: 'Assumindo sua nova identidade',
     preacher: 'Pr. Lucrécio',
