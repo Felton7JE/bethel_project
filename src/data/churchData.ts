@@ -233,7 +233,52 @@ export const MISSION_INITIATIVES: InitiativeItem[] = [
   },
 ];
 
+export interface CommunitySlideItem {
+  id: string;
+  image: string;
+  title: string;
+  category: string;
+  caption: string;
+}
+
+export const COMMUNITY_CAROUSEL_SLIDES: CommunitySlideItem[] = [
+  {
+    id: 'pr-lucrecio',
+    image: '/images/pr-lucrecio-culto.jpg',
+    category: 'Culto da Família',
+    title: 'Ministração da Palavra & Liderança Local',
+    caption: 'Pr. Lucrécio ministrando no Culto da Família: "Assumindo sua nova identidade" — mensagens bíblicas focadas no amadurecimento e renovação em Cristo.',
+  },
+  {
+    id: 'juventude-bethel',
+    image: '/images/jovens-comunhao-beira.jpg',
+    category: 'Juventude & Comunhão',
+    title: 'Uma Geração Viva e Unida',
+    caption: 'Momentos de oração, louvor e verdadeira comunhão entre os jovens e a liderança da Missão Bethel na Cidade da Beira.',
+  },
+  {
+    id: 'ministerio-infantil',
+    image: '/images/ministerio-infantil-bethel.jpg',
+    category: 'Ministério Infantil',
+    title: 'Ensino Bíblico das Crianças',
+    caption: 'Espaço formativo para a infância: "Deus da sabedoria a quem pede" (Tiago 1:5) — discipulando a próxima geração com amor e alegria.',
+  },
+  {
+    id: 'cuidado-comunitario',
+    image: '/images/cuidado-pastoral-comunidade.jpg',
+    category: 'Acolhimento & Família',
+    title: 'Cuidado Pastoral e Abraço Comunitário',
+    caption: 'Uma igreja calorosa e acolhedora, onde cada família e cada criança é recebida com carinho, oração e atenção genuína.',
+  },
+];
+
 export const RECENT_MESSAGES: SermonItem[] = [
+  {
+    date: 'Ano 2026',
+    title: 'Assumindo sua nova identidade',
+    preacher: 'Pr. Lucrécio',
+    series: 'Culto da Família',
+  },
   {
     date: '06 Set 2026',
     title: 'Vencendo as dúvidas',
