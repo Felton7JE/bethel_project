@@ -4,6 +4,12 @@ import { CHURCH_INFO, RECENT_MESSAGES, COMMUNITY_CAROUSEL_SLIDES } from '../data
 export function MessagesAndLeadership() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [showAllSermons, setShowAllSermons] = useState(false);
+
+  const INITIAL_SERMON_COUNT = 3;
+  const displayedMessages = showAllSermons
+    ? RECENT_MESSAGES
+    : RECENT_MESSAGES.slice(0, INITIAL_SERMON_COUNT);
 
   const totalSlides = COMMUNITY_CAROUSEL_SLIDES.length;
 
@@ -206,10 +212,10 @@ export function MessagesAndLeadership() {
           </div>
 
           <div className="border-t border-[#16181A] divide-y divide-[#E2DDD4] border-b border-b-[#E2DDD4]">
-            {RECENT_MESSAGES.map((msg) => (
+            {displayedMessages.map((msg) => (
               <div
                 key={`${msg.date}-${msg.title}`}
-                className="py-4.5 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline"
+                className="py-4.5 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline transition-colors hover:bg-[#16181A]/[0.02]"
               >
                 <span className="sm:col-span-2 text-[13px] text-[#787670] tabular-nums">
                   {msg.date}
@@ -226,6 +232,26 @@ export function MessagesAndLeadership() {
               </div>
             ))}
           </div>
+
+          {/* Toggle Ver Mais / Ver Menos Button */}
+          {RECENT_MESSAGES.length > INITIAL_SERMON_COUNT && (
+            <div className="mt-8 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setShowAllSermons(!showAllSermons)}
+                className="inline-flex items-center gap-2 rounded-[2px] border border-[#16181A]/20 bg-white px-5 py-2.5 text-[13px] font-medium text-[#16181A] hover:bg-[#EAE6DF] hover:border-[#16181A]/40 transition-all cursor-pointer shadow-sm"
+              >
+                <span>
+                  {showAllSermons
+                    ? 'Ver menos ministrações'
+                    : `Ver mais ministrações (+${RECENT_MESSAGES.length - INITIAL_SERMON_COUNT})`}
+                </span>
+                <span aria-hidden="true" className="text-xs">
+                  {showAllSermons ? '↑' : '↓'}
+                </span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
